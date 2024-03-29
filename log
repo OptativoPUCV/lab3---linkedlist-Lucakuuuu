@@ -866,3 +866,13 @@ Fri 29 Mar 2024 08:35:28 PM UTC:
  tests:  10|2
 total_score: 45/70
 50d7988
+Fri 29 Mar 2024 08:37:56 PM UTC: 
+ list.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+In file included from test.c:5:
+list.c: In function ‘pushCurrent’:
+list.c:88:7: error: ‘List’ {aka ‘struct List’} has no member named ‘prev’
+   88 |   list->prev = newNodo;
+      |       ^~
+Compilation failed
+679a773
