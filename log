@@ -741,3 +741,21 @@ list.c:57:1: error: control reaches end of non-void function [-Werror=return-typ
 cc1: all warnings being treated as errors
 Compilation failed
 894ac03
+Fri 29 Mar 2024 05:08:32 PM UTC: 
+ list.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:5:
+list.c: In function ‘firstList’:
+list.c:48:41: error: ‘Node’ has no member named ‘head’
+   48 |   if(list->current) return list->current->head;
+      |                                         ^~
+list.c:49:1: error: control reaches end of non-void function [-Werror=return-type]
+   49 | }
+      | ^
+list.c: In function ‘nextList’:
+list.c:57:1: error: control reaches end of non-void function [-Werror=return-type]
+   57 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+5310846
