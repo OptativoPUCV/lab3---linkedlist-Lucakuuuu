@@ -28,7 +28,7 @@ Node * createNode(void * data)
   nodo->next = NULL;
   nodo->prev = NULL;
   
-  return nodo;
+  return NULL;
 }
 
 List * createList() 
@@ -39,6 +39,7 @@ List * createList()
   lista->head = NULL;
   lista->tail = NULL;
   lista->current = NULL;
+  
   return NULL;
 }
 
