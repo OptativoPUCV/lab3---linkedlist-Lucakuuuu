@@ -22,6 +22,7 @@ typedef List List;
 Node * createNode(void * data) 
 {
   node* nodo = (node*) malloc(sizeof(node));
+  
   if(nodo == NULL) return NULL;
   nodo->data = data;
   nodo->next = NULL;
@@ -32,6 +33,7 @@ Node * createNode(void * data)
 List * createList() 
 {
   list* lista = (list*) malloc(sizeof(list));
+  
   if(lista == NULL) return NULL;
   lista->head = NULL;
   lista->tail = NULL;
@@ -39,8 +41,10 @@ List * createList()
   return lista;
 }
 
-void * firstList(List * list) {
-    return NULL;
+void * firstList(List * list) 
+{
+  list->current = list->head;
+  if(list->current) return list->current->key
 }
 
 void * nextList(List * list) {
