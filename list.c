@@ -12,8 +12,8 @@ struct Node {
 };
 
 struct List {
-    Node * head; //principal
-    Node * tail; //ultimo
+    Node * head; //primero
+    Node * tail; //último
     Node * current; //actual
 };
 
