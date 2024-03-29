@@ -19,10 +19,8 @@ struct List {
 
 typedef List List;
 
-Node * createNode(void * data) 
-{
+Node * createNode(void * data) {
   Node* nodo = (Node*) malloc(sizeof(Node));
-  
   if(nodo == NULL) return NULL;
   nodo->data = data;
   nodo->next = NULL;
@@ -30,27 +28,22 @@ Node * createNode(void * data)
   return nodo;
 }
 
-List * createList() 
-{
+List * createList() {
   List* lista = (List*) malloc(sizeof(List));
-  
   if(lista == NULL) return NULL;
   lista->head = NULL;
   lista->tail = NULL;
   lista->current = NULL;
-  
   return lista;
 }
 
-void * firstList(List * list) 
-{
+void * firstList(List * list) {
   list->current = list->head;
   if(list->current) return list->current->data;
   return NULL;
 }
 
-void * nextList(List * list) 
-{
+void * nextList(List * list) {
   if(list->current != NULL)
       list->current = list->current->next;
   if(list->current != NULL)
