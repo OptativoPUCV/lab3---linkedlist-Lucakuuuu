@@ -838,3 +838,20 @@ Fri 29 Mar 2024 05:56:18 PM UTC:
  tests:  10|2
 total_score: 45/70
 55d37a0
+Fri 29 Mar 2024 08:32:17 PM UTC: 
+ list.c | 68 ++++++++++++++++++++++++++++++++++--------------------------------
+ 1 file changed, 35 insertions(+), 33 deletions(-)
+In file included from test.c:5:
+list.c:42:3: error: expected identifier or ‘(’ before ‘else’
+   42 |   else return NULL; //sino retorno null
+      |   ^~~~
+list.c:43:1: error: expected identifier or ‘(’ before ‘}’ token
+   43 | }
+      | ^
+list.c: In function ‘firstList’:
+list.c:41:1: error: control reaches end of non-void function [-Werror=return-type]
+   41 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+ee10964

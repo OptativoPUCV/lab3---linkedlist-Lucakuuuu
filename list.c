@@ -6,69 +6,70 @@
 typedef struct Node Node;
 
 struct Node {
-    void * data;
-    Node * next;
-    Node * prev;
+    void * data; //dato
+    Node * next; //siguiente nodo
+    Node * prev; //anterior nodo
 };
 
 struct List {
-    Node * head;
-    Node * tail;
-    Node * current;
+    Node * head; //principal
+    Node * tail; //ultimo
+    Node * current; //actual
 };
 
 typedef List List;
 
 Node * createNode(void * data) {
-  Node* nodo = (Node*) malloc(sizeof(Node));
-  nodo->data = data;
-  nodo->next = NULL;
-  nodo->prev = NULL;
+  Node* nodo = (Node*) malloc(sizeof(Node)); //memoria para nodo
+  nodo->data = data; //dato correspondiente del nodo
+  nodo->next = NULL; //siguiente nodo
+  nodo->prev = NULL; //anterior nodo
   return nodo;
 }
 
 List * createList() {
-  List* lista = (List*) malloc(sizeof(List));
-  lista->head = NULL;
-  lista->tail = NULL;
-  lista->current = NULL;
+  List* lista = (List*) malloc(sizeof(List)); //memoria para lista
+  lista->head = NULL; //principal
+  lista->tail = NULL; //ultimo
+  lista->current = NULL; //actual
   return lista;
 }
 
 void * firstList(List * list) {
-  list->current = list->head;
-  if(list->current) return list->current->data;
-  else return NULL;
+  list->current = list->head; //asigno el actual al principal
+  if(list->current) return list->current->data; //si no es null, retorno el dato del actual
+}
+  else return NULL; //sino retorno null
 }
 
 void * nextList(List * list) {
-  if(list->current != NULL)
-      list->current = list->current->next;
-  if(list->current != NULL)
-      return list->current->data;
-  else return NULL;
+  if(list->current != NULL) //si el actual no es null  
+      list->current = list->current->next; //asigno el siguiente al actual
+  if(list->current != NULL) //si el actual no es null
+      return list->current->data; //retorno el dato del actual
+  else return NULL; //sino retorno null
 }
 
 void * lastList(List * list) {
-  list->current = list->tail;
-  if(list->current) return list->current->data;
-  else return NULL;
+  list->current = list->tail; //asigno el actual al ultimo
+  if(list->current) return list->current->data; //si no es null, retorno el dato del actual
+  else return NULL; //sino retorno null
 }
 
 void * prevList(List * list) {
-  if(list->current != NULL){
-    list->current = list->current->prev;
-    if(list->current) return list->current->data;
+  if(list->current != NULL){ //si el actual no es null
+    list->current = list->current->prev; //asigno el anterior al actual
+    if(list->current) return list->current->data; //si no es null, retorno el dato del actual
     else return NULL;
   }
   else return NULL;
 }
 
 void pushFront(List * list, void * data) {
-  Node* newNodo = createNode(data);
-  if(list->head == NULL){
-    list->head = newNodo;
-    list->tail = newNodo;
+  Node* newNodo = createNode(data); //creo un nuevo nodo
+  if(list->head == NULL){ //si la lista esta vacia
+    list->head = newNodo; //el nuevo nodo es el principal
+    list->tail = newNodo; //el nuevo nodo es el ultimo
   }
   else{
     newNodo->next = list->head;
@@ -78,12 +79,13 @@ void pushFront(List * list, void * data) {
 }
 
 void pushBack(List * list, void * data) {
-    list->current = list->tail;
-    pushCurrent(list,data);
+  list->current = list->tail;
+  pushCurrent(list,data);
 }
 
 void pushCurrent(List * list, void * data) {
-  
+  Node* newNodo = createNode(data);
+  newNodo->next->prev = newNodo;
 }
 
 void * popFront(List * list) {
