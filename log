@@ -372,3 +372,197 @@ list.c:58:1: error: control reaches end of non-void function [-Werror=return-typ
 cc1: all warnings being treated as errors
 Compilation failed
 62560c8
+Fri 29 Mar 2024 05:04:12 PM UTC: 
+ list.c | 9 ++-------
+ 1 file changed, 2 insertions(+), 7 deletions(-)
+In file included from test.c:5:
+list.c:8:5: error: unknown type name ‘Node’
+    8 |     Node * next;
+      |     ^~~~
+list.c:9:5: error: unknown type name ‘Node’
+    9 |     Node * prev;
+      |     ^~~~
+list.c:13:5: error: unknown type name ‘Node’
+   13 |     Node * head;
+      |     ^~~~
+list.c:14:5: error: unknown type name ‘Node’
+   14 |     Node * tail;
+      |     ^~~~
+list.c:15:5: error: unknown type name ‘Node’
+   15 |     Node * current;
+      |     ^~~~
+list.c:18:1: error: unknown type name ‘Node’; use ‘struct’ keyword to refer to the type
+   18 | Node * createNode(void * data)
+      | ^~~~
+      | struct 
+list.c: In function ‘createNode’:
+list.c:20:3: error: unknown type name ‘node’
+   20 |   node* nodo = (node*) malloc(sizeof(node));
+      |   ^~~~
+list.c:20:17: error: ‘node’ undeclared (first use in this function); did you mean ‘Node’?
+   20 |   node* nodo = (node*) malloc(sizeof(node));
+      |                 ^~~~
+      |                 Node
+list.c:20:17: note: each undeclared identifier is reported only once for each function it appears in
+list.c:20:22: error: expected expression before ‘)’ token
+   20 |   node* nodo = (node*) malloc(sizeof(node));
+      |                      ^
+list.c:23:7: error: request for member ‘data’ in something not a structure or union
+   23 |   nodo->data = data;
+      |       ^~
+list.c:24:7: error: request for member ‘next’ in something not a structure or union
+   24 |   nodo->next = NULL;
+      |       ^~
+list.c:25:7: error: request for member ‘prev’ in something not a structure or union
+   25 |   nodo->prev = NULL;
+      |       ^~
+list.c: In function ‘createList’:
+list.c:31:3: error: unknown type name ‘list’; did you mean ‘List’?
+   31 |   list* lista = (list*) malloc(sizeof(list));
+      |   ^~~~
+      |   List
+list.c:31:18: error: ‘list’ undeclared (first use in this function); did you mean ‘List’?
+   31 |   list* lista = (list*) malloc(sizeof(list));
+      |                  ^~~~
+      |                  List
+list.c:31:23: error: expected expression before ‘)’ token
+   31 |   list* lista = (list*) malloc(sizeof(list));
+      |                       ^
+list.c:34:8: error: request for member ‘head’ in something not a structure or union
+   34 |   lista->head = NULL;
+      |        ^~
+list.c:35:8: error: request for member ‘tail’ in something not a structure or union
+   35 |   lista->tail = NULL;
+      |        ^~
+list.c:36:8: error: request for member ‘current’ in something not a structure or union
+   36 |   lista->current = NULL;
+      |        ^~
+list.c:38:10: error: returning ‘int *’ from a function with incompatible return type ‘List *’ [-Werror=incompatible-pointer-types]
+   38 |   return lista;
+      |          ^~~~~
+list.c: In function ‘firstList’:
+list.c:44:41: error: request for member ‘key’ in something not a structure or union
+   44 |   if(list->current) return list->current->key;
+      |                                         ^~
+list.c: In function ‘nextList’:
+list.c:50:36: error: request for member ‘next’ in something not a structure or union
+   50 |       list->current = list->current->next;
+      |                                    ^~
+list.c:52:27: error: request for member ‘key’ in something not a structure or union
+   52 |       return list->current->key;
+      |                           ^~
+test.c: In function ‘initialize_exList’:
+test.c:60:12: error: unknown type name ‘Node’; use ‘struct’ keyword to refer to the type
+   60 |     int i; Node*n;
+      |            ^~~~
+      |            struct 
+test.c:65:17: error: request for member ‘next’ in something not a structure or union
+   65 |          L->tail->next=n;
+      |                 ^~
+test.c:66:11: error: request for member ‘prev’ in something not a structure or union
+   66 |          n->prev=L->tail;
+      |           ^~
+test.c: In function ‘test_first_next’:
+test.c:143:29: error: request for member ‘next’ in something not a structure or union
+  143 |     if(L->current != L->head->next){
+      |                             ^~
+test.c: In function ‘test_last_prev’:
+test.c:205:29: error: request for member ‘prev’ in something not a structure or union
+  205 |     if(L->current != L->tail->prev){
+      |                             ^~
+test.c: In function ‘test_pushfront’:
+test.c:259:15: error: request for member ‘data’ in something not a structure or union
+  259 |     if(L->head->data != j){
+      |               ^~
+test.c:267:5: error: unknown type name ‘Node’; use ‘struct’ keyword to refer to the type
+  267 |     Node* aux=L->head;
+      |     ^~~~
+      |     struct 
+test.c:273:15: error: request for member ‘data’ in something not a structure or union
+  273 |     if(L->head->data != j){
+      |               ^~
+test.c:279:15: error: request for member ‘next’ in something not a structure or union
+  279 |     if(L->head->next == NULL){
+      |               ^~
+test.c:284:15: error: request for member ‘next’ in something not a structure or union
+  284 |     if(L->head->next != aux){
+      |               ^~
+test.c:285:71: error: request for member ‘next’ in something not a structure or union
+  285 |         sprintf(msg,"head->next->data=%d (debe ser 0)",*(int*) L->head->next->data);
+      |                                                                       ^~
+test.c: In function ‘test_pushcurrent’:
+test.c:311:34: error: request for member ‘next’ in something not a structure or union
+  311 |     if(L->head == NULL || L->head->next==NULL){
+      |                                  ^~
+test.c:316:15: error: request for member ‘next’ in something not a structure or union
+  316 |     if(L->head->next->data != j){
+      |               ^~
+test.c:322:15: error: request for member ‘next’ in something not a structure or union
+  322 |     if(L->head->next->prev ==NULL){
+      |               ^~
+test.c:328:5: error: unknown type name ‘Node’; use ‘struct’ keyword to refer to the type
+  328 |     Node* aux=L->tail;
+      |     ^~~~
+      |     struct 
+test.c:335:34: error: request for member ‘data’ in something not a structure or union
+  335 |     if(L->tail == NULL || L->tail->data != j){
+      |                                  ^~
+test.c:340:11: error: request for member ‘next’ in something not a structure or union
+  340 |     if(aux->next == NULL || aux->next!=L->tail){
+      |           ^~
+test.c:340:32: error: request for member ‘next’ in something not a structure or union
+  340 |     if(aux->next == NULL || aux->next!=L->tail){
+      |                                ^~
+test.c:345:15: error: request for member ‘prev’ in something not a structure or union
+  345 |     if(L->tail->prev == NULL || L->tail->prev!=aux){
+      |               ^~
+test.c:345:40: error: request for member ‘prev’ in something not a structure or union
+  345 |     if(L->tail->prev == NULL || L->tail->prev!=aux){
+      |                                        ^~
+test.c: In function ‘test_popcurrent’:
+test.c:370:41: error: request for member ‘data’ in something not a structure or union
+  370 |     if(L->head == NULL || *(int*)L->head->data != 2){
+      |                                         ^~
+test.c:375:15: error: request for member ‘prev’ in something not a structure or union
+  375 |     if(L->head->prev != NULL){
+      |               ^~
+test.c:386:23: error: request for member ‘next’ in something not a structure or union
+  386 |     L->current=L->head->next;
+      |                       ^~
+test.c:387:5: error: unknown type name ‘Node’; use ‘struct’ keyword to refer to the type
+  387 |     Node* aux=L->head->next->next;
+      |     ^~~~
+      |     struct 
+test.c:387:22: error: request for member ‘next’ in something not a structure or union
+  387 |     Node* aux=L->head->next->next;
+      |                      ^~
+test.c:394:15: error: request for member ‘next’ in something not a structure or union
+  394 |     if(L->head->next == NULL || L->head->next!=aux){
+      |               ^~
+test.c:394:40: error: request for member ‘next’ in something not a structure or union
+  394 |     if(L->head->next == NULL || L->head->next!=aux){
+      |                                        ^~
+test.c:399:11: error: request for member ‘prev’ in something not a structure or union
+  399 |     if(aux->prev != L->head){
+      |           ^~
+test.c:411:16: error: request for member ‘prev’ in something not a structure or union
+  411 |     aux=L->tail->prev;
+      |                ^~
+test.c:415:16: error: request for member ‘prev’ in something not a structure or union
+  415 |     aux=L->tail->prev;
+      |                ^~
+test.c:426:15: error: request for member ‘next’ in something not a structure or union
+  426 |     if(L->tail->next != NULL){
+      |               ^~
+In file included from test.c:5:
+list.c: In function ‘firstList’:
+list.c:45:1: error: control reaches end of non-void function [-Werror=return-type]
+   45 | }
+      | ^
+list.c: In function ‘nextList’:
+list.c:53:1: error: control reaches end of non-void function [-Werror=return-type]
+   53 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+a49ff21
