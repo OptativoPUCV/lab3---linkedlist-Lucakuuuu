@@ -165,3 +165,75 @@ list.c:48:1: error: control reaches end of non-void function [-Werror=return-typ
 cc1: all warnings being treated as errors
 Compilation failed
 080b97b
+Fri 29 Mar 2024 04:56:33 PM UTC: 
+ list.c | 10 +++++++---
+ 1 file changed, 7 insertions(+), 3 deletions(-)
+In file included from test.c:5:
+list.c: In function ‘createNode’:
+list.c:24:3: error: unknown type name ‘node’; did you mean ‘Node’?
+   24 |   node* nodo = (node*) malloc(sizeof(node));
+      |   ^~~~
+      |   Node
+list.c:24:17: error: ‘node’ undeclared (first use in this function); did you mean ‘Node’?
+   24 |   node* nodo = (node*) malloc(sizeof(node));
+      |                 ^~~~
+      |                 Node
+list.c:24:17: note: each undeclared identifier is reported only once for each function it appears in
+list.c:24:22: error: expected expression before ‘)’ token
+   24 |   node* nodo = (node*) malloc(sizeof(node));
+      |                      ^
+list.c:27:7: error: request for member ‘data’ in something not a structure or union
+   27 |   nodo->data = data;
+      |       ^~
+list.c:28:7: error: request for member ‘next’ in something not a structure or union
+   28 |   nodo->next = NULL;
+      |       ^~
+list.c:29:7: error: request for member ‘prev’ in something not a structure or union
+   29 |   nodo->prev = NULL;
+      |       ^~
+list.c:31:10: error: returning ‘int *’ from a function with incompatible return type ‘Node *’ [-Werror=incompatible-pointer-types]
+   31 |   return nodo;
+      |          ^~~~
+list.c: In function ‘createList’:
+list.c:36:3: error: unknown type name ‘list’; did you mean ‘List’?
+   36 |   list* lista = (list*) malloc(sizeof(list));
+      |   ^~~~
+      |   List
+list.c:36:18: error: ‘list’ undeclared (first use in this function); did you mean ‘List’?
+   36 |   list* lista = (list*) malloc(sizeof(list));
+      |                  ^~~~
+      |                  List
+list.c:36:23: error: expected expression before ‘)’ token
+   36 |   list* lista = (list*) malloc(sizeof(list));
+      |                       ^
+list.c:39:8: error: request for member ‘head’ in something not a structure or union
+   39 |   lista->head = NULL;
+      |        ^~
+list.c:40:8: error: request for member ‘tail’ in something not a structure or union
+   40 |   lista->tail = NULL;
+      |        ^~
+list.c:41:8: error: request for member ‘current’ in something not a structure or union
+   41 |   lista->current = NULL;
+      |        ^~
+list.c:43:10: error: returning ‘int *’ from a function with incompatible return type ‘List *’ {aka ‘struct List *’} [-Werror=incompatible-pointer-types]
+   43 |   return lista;
+      |          ^~~~~
+list.c: In function ‘firstList’:
+list.c:49:41: error: ‘Node’ has no member named ‘key’
+   49 |   if(list->current) return list->current->key;
+      |                                         ^~
+list.c: In function ‘nextList’:
+list.c:57:27: error: ‘Node’ has no member named ‘key’
+   57 |       return list->current->key;
+      |                           ^~
+list.c: In function ‘firstList’:
+list.c:50:1: error: control reaches end of non-void function [-Werror=return-type]
+   50 | }
+      | ^
+list.c: In function ‘nextList’:
+list.c:58:1: error: control reaches end of non-void function [-Werror=return-type]
+   58 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+5282de8

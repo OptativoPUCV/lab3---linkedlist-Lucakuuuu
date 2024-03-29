@@ -27,6 +27,7 @@ Node * createNode(void * data)
   nodo->data = data;
   nodo->next = NULL;
   nodo->prev = NULL;
+  
   return nodo;
 }
 
@@ -38,17 +39,22 @@ List * createList()
   lista->head = NULL;
   lista->tail = NULL;
   lista->current = NULL;
+  
   return lista;
 }
 
 void * firstList(List * list) 
 {
   list->current = list->head;
-  if(list->current) return list->current->key
+  if(list->current) return list->current->key;
 }
 
-void * nextList(List * list) {
-    return NULL;
+void * nextList(List * list) 
+{
+  if(list->current != NULL)
+      list->current = list->current->next;
+  if(list->current != NULL)
+      return list->current->key;
 }
 
 void * lastList(List * list) {
