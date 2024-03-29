@@ -964,3 +964,9 @@ list.c:117:22: error: ‘siguiente’ undeclared (first use in this function); d
 cc1: all warnings being treated as errors
 Compilation failed
 16da966
+Fri 29 Mar 2024 09:27:40 PM UTC: 
+ list.c | 23 ++++++++++++-----------
+ 1 file changed, 12 insertions(+), 11 deletions(-)
+ tests:  12|0
+total_score: 70/70
+f23cf9e
