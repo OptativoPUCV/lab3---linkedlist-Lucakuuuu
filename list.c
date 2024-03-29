@@ -3,6 +3,8 @@
 #include <assert.h>
 #include "list.h"
 
+typedef struct Node Node;
+
 struct Node {
     void * data;
     Node * next;
@@ -14,6 +16,8 @@ struct List {
     Node * tail;
     Node * current;
 };
+
+typedef List List;
 
 Node * createNode(void * data) 
 {
