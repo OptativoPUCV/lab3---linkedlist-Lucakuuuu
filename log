@@ -40,3 +40,59 @@ list.c:29:10: error: returning ‘int *’ from a function with incompatible ret
 cc1: all warnings being treated as errors
 Compilation failed
 10e9c5e
+Fri 29 Mar 2024 04:48:12 PM UTC: 
+ list.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+In file included from test.c:5:
+list.c: In function ‘createNode’:
+list.c:24:3: error: unknown type name ‘node’; did you mean ‘Node’?
+   24 |   node* nodo = (node*) malloc(sizeof(node));
+      |   ^~~~
+      |   Node
+list.c:24:17: error: ‘node’ undeclared (first use in this function); did you mean ‘Node’?
+   24 |   node* nodo = (node*) malloc(sizeof(node));
+      |                 ^~~~
+      |                 Node
+list.c:24:17: note: each undeclared identifier is reported only once for each function it appears in
+list.c:24:22: error: expected expression before ‘)’ token
+   24 |   node* nodo = (node*) malloc(sizeof(node));
+      |                      ^
+list.c:26:7: error: request for member ‘data’ in something not a structure or union
+   26 |   nodo->data = data;
+      |       ^~
+list.c:27:7: error: request for member ‘next’ in something not a structure or union
+   27 |   nodo->next = NULL;
+      |       ^~
+list.c:28:7: error: request for member ‘prev’ in something not a structure or union
+   28 |   nodo->prev = NULL;
+      |       ^~
+list.c:29:10: error: returning ‘int *’ from a function with incompatible return type ‘Node *’ [-Werror=incompatible-pointer-types]
+   29 |   return nodo;
+      |          ^~~~
+list.c: In function ‘createList’:
+list.c:34:3: error: unknown type name ‘list’; did you mean ‘List’?
+   34 |   list* lista = (list*) malloc(sizeof(list));
+      |   ^~~~
+      |   List
+list.c:34:18: error: ‘list’ undeclared (first use in this function); did you mean ‘List’?
+   34 |   list* lista = (list*) malloc(sizeof(list));
+      |                  ^~~~
+      |                  List
+list.c:34:23: error: expected expression before ‘)’ token
+   34 |   list* lista = (list*) malloc(sizeof(list));
+      |                       ^
+list.c:36:8: error: request for member ‘head’ in something not a structure or union
+   36 |   lista->head = NULL;
+      |        ^~
+list.c:37:8: error: request for member ‘tail’ in something not a structure or union
+   37 |   lista->tail = NULL;
+      |        ^~
+list.c:38:8: error: request for member ‘current’ in something not a structure or union
+   38 |   lista->current = NULL;
+      |        ^~
+list.c:39:10: error: returning ‘int *’ from a function with incompatible return type ‘List *’ {aka ‘struct List *’} [-Werror=incompatible-pointer-types]
+   39 |   return lista;
+      |          ^~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+370738b
