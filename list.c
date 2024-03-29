@@ -29,7 +29,6 @@ Node * createNode(void * data) {
 
 List * createList() {
   List* lista = (List*) malloc(sizeof(List));
-  if(lista == NULL) return NULL;
   lista->head = NULL;
   lista->tail = NULL;
   lista->current = NULL;
@@ -67,6 +66,15 @@ void * prevList(List * list) {
 
 void pushFront(List * list, void * data) {
   Node* newNodo = createNode(data);
+  if(list->head == NULL){
+    list->head = newNodo;
+    list->tail = newNodo;
+  }
+  else{
+    newNodo->next = list->head;
+    list->head->prev = newNodo;
+    list->head = newNodo;
+  }
 }
 
 void pushBack(List * list, void * data) {
