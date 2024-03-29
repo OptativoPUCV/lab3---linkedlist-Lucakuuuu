@@ -21,7 +21,6 @@ typedef List List;
 
 Node * createNode(void * data) {
   Node* nodo = (Node*) malloc(sizeof(Node));
-  if(nodo == NULL) return NULL;
   nodo->data = data;
   nodo->next = NULL;
   nodo->prev = NULL;
@@ -67,15 +66,7 @@ void * prevList(List * list) {
 }
 
 void pushFront(List * list, void * data) {
-  Node* nuevoNodo = (Node*) malloc(sizeof(Node));
-  nuevoNodo->data = data;
-  nuevoNodo->next = list->head;
-  nuevoNodo->prev = NULL;
-  if(list->head != NULL)
-    list->head->prev = nuevoNodo;
-  else
-    list->tail = nuevoNodo;
-  list->head = nuevoNodo;
+  Node* newNodo = createNode(data);
 }
 
 void pushBack(List * list, void * data) {

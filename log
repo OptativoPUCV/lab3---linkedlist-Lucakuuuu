@@ -821,3 +821,14 @@ Fri 29 Mar 2024 05:50:21 PM UTC:
  tests:  10|2
 total_score: 45/70
 2f93c20
+Fri 29 Mar 2024 05:53:31 PM UTC: 
+ list.c | 11 +----------
+ 1 file changed, 1 insertion(+), 10 deletions(-)
+In file included from test.c:5:
+list.c: In function ‘pushFront’:
+list.c:69:9: error: unused variable ‘newNodo’ [-Werror=unused-variable]
+   69 |   Node* newNodo = createNode(data);
+      |         ^~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+27f279f
