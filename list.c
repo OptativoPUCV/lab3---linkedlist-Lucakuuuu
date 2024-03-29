@@ -38,7 +38,6 @@ List * createList() {
 void * firstList(List * list) {
   list->current = list->head; //asigno el actual al principal
   if(list->current) return list->current->data; //si no es null, retorno el dato del actual
-}
   else return NULL; //sino retorno null
 }
 
